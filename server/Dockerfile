@@ -1,9 +1,11 @@
 FROM jarredsumner/bun:edge
 
+ARG port
+
 RUN mkdir -p app
 WORKDIR /app
 
-COPY ./src/http.js ./http.js
+COPY ./src/http.ts ./http.ts
 
-EXPOSE 3000
-CMD bun run http.js
+EXPOSE $port
+CMD bun run http.ts

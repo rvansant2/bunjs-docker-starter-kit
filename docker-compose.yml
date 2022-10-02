@@ -4,10 +4,21 @@ services:
   server:
     build: 
       context: ./server
-      dockerfile: Dockerfile.custom
+      dockerfile: Dockerfile
+      args:
+        port: 3000
+    restart: on-failure
     volumes:
       - ./server/src:/app
     ports:
       - 3000:3000
+    networks:
+      - bunjs
+    logging:
+      options:
+        max-size: 10m
+
 
 volumes: {}
+networks:
+  bunjs:

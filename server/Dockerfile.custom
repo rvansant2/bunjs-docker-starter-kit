@@ -1,5 +1,7 @@
 FROM ubuntu:latest
 
+ARG port
+
 RUN apt-get update \
  && apt-get install -y sudo locales curl unzip && rm -rf /var/lib/apt/lists/* \
 	&& localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
@@ -22,7 +24,7 @@ RUN . ~/.bashrc
 RUN sudo mkdir -p app
 WORKDIR /app
 
-COPY ./src/http.js ./http.js
+COPY ./src/http.ts ./http.ts
 
 EXPOSE 3000
-CMD ~/.bun/bin/bun run http.js
+CMD ~/.bun/bin/bun run http.ts
