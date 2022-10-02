@@ -1,0 +1,28 @@
+FROM ubuntu:latest
+
+RUN apt-get update \
+ && apt-get install -y sudo locales curl unzip && rm -rf /var/lib/apt/lists/* \
+	&& localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
+ENV LANG en_US.utf8
+
+RUN adduser --disabled-password --gecos "" --shell /bin/bash docker
+RUN usermod -g sudo docker
+RUN passwd -d docker
+RUN adduser docker sudo
+RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+
+USER docker
+
+RUN curl https://bun.sh/install | bash
+
+RUN echo 'export BUN_INSTALL="$HOME/.bun"' >> ~/.bashrc
+RUN echo 'export PATH="$BUN_INSTALL/bin:$PATH"' >> ~/.bashrc
+RUN . ~/.bashrc
+
+RUN sudo mkdir -p app
+WORKDIR /app
+
+COPY ./src/http.js ./http.js
+
+EXPOSE 3000
+CMD ~/.bun/bin/bun run http.js

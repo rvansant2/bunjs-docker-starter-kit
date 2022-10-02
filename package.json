@@ -1,0 +1,11 @@
+{
+  "name": "bunjs-docker-starter",
+  "version": "1.0.0",
+  "description": "Simple bunjs Docker starter kit",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["bunjs", "docker", "starter"],
+  "author": "rvansant2",
+  "license": "MIT"
+}

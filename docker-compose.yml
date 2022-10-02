@@ -1,0 +1,13 @@
+version: '3.9'
+services:
+
+  server:
+    build: 
+      context: ./server
+      dockerfile: Dockerfile.custom
+    volumes:
+      - ./server/src:/app
+    ports:
+      - 3000:3000
+
+volumes: {}
