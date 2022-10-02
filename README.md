@@ -2,8 +2,8 @@
 Bunjs Docker Starter Kit
 
 ## Bunjs Features
-- From [Bunjs Documentation](https://bun.sh/)
-Web APIs like `fetch`, `WebSocket`, and `ReadableStream` are built-in
+- From [Bunjs Documentation](https://bun.sh/):
+- Web APIs like `fetch`, `WebSocket`, and `ReadableStream` are built-in
 - `node_modules` bun implements Node.js' module resolution algorithm, so you can use `npm` packages in Bun. `ESM` and `CommonJS` are supported, but Bun internally uses `ESM`
 - In Bun, every file is transpiled. `TypeScript` & `JSX` just work
 - Bun supports "paths", "jsxImportSource"and more from `tsconfig.json` files
