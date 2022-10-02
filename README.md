@@ -1,4 +1,4 @@
-# bunjs-docker-starter
+# bunjs-docker-starter-kit
 Bunjs Docker Starter Kit
 
 ## Bunjs Features
